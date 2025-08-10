@@ -1,14 +1,15 @@
 :root{
-    --cor-fundo: #01080E ;
-    --cor-principal: #0B0D20 ;
-    --cor-secundaria: #212333; 
-    --cor-destaque: #2BDEFD;
-    --cor-texto: #D7F9FF;
+    --cor-destaque: #d60b0b;
+    --cor-texto: white;
 
 }
-
 body {
-    background-color: var(--cor-fundo);
+    background-image: url(pp.png);
+    background-repeat: no-repeat;
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
+   background-color: black;
+    background-position: 396px center;
     color: var(--cor-texto);
     display: flex;
     justify-content: center;

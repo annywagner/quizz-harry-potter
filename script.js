@@ -18,8 +18,9 @@ const perguntas = [
             }
         ]
     },
+    
     {
-        enunciado: "Quem levou o Harry para a casa dos tios?",
+        questão1: "Quem levou o Harry para a casa dos tios?",
         alternativas: [
             {
                 texto: "Hagrid e Dumbledore",
@@ -32,42 +33,121 @@ const perguntas = [
         ]
     },
     {
-        enunciado: "Quem deu a motocicleta que leva Harry para a casa dos tios?",
+        questão2: "Quem deu a motocicleta que leva Harry para a casa dos tios?",
         alternativas: [
             {
-                texto: "Dumbledore",
-                afirmacao: "Diretor de Hogwarts"
+                texto: "Arthur Weasley",
+                afirmacao: "pai de Rony Weasley"
             },
             {
                 texto: "Sirius Black",
                 afirmacao: "Padrinho de Harry"
+            }   
+        ]
+    },
+    {
+        questão3: "Quem foi que instruiu Harry a passa pela plataforma 9 e 10 para chegar a plataforma 9¾?",
+        alternativas: [
+            {
+                texto: "Lucius Malfoy",
+                afirmacao: "Pai de Draco, comensal da morte"
+            },
+            {
+                texto: "Molly Weasley",
+                afirmacao: "Mãe do Rony"
             }
         ]
     },
     {
-        enunciado: "Ao final da discussão, você precisou criar uma imagem no computador que representasse o que pensa sobre IA. E agora?",
+        questão4: "Quais são os nomes dos amigos de Harry?",
         alternativas: [
             {
-                texto: "Criar uma imagem utilizando uma plataforma de design como o Paint.",
-                afirmacao: "Notou também que muitas pessoas não sabem ainda utilizar as ferramentas tradicionais e decidiu compartilhar seus conhecimentos de design utilizando ferramentas de pintura digital para iniciantes."
+                texto: "Luna e Neville",
+                afirmacao: "Luna só aparece no 5 livro e Neville só faz algumas aparições"
             },
             {
-                texto: "Criar uma imagem utilizando um gerador de imagem de IA.",
-                afirmacao: "Acelerou o processo de criação de trabalhos utilizando geradores de imagem e agora consegue ensinar pessoas que sentem dificuldades em desenhar manualmente como utilizar também!"
-            }
+                texto: "Rony e Hermione",
+                afirmacao: "resposta correta "
+            },
+            
         ]
     },
     {
-        enunciado: "Você tem um trabalho em grupo de biologia para entregar na semana seguinte, o andamento do trabalho está um pouco atrasado e uma pessoa do seu grupo decidiu fazer com ajuda da IA. O problema é que o trabalho está totalmente igual ao do chat. O que você faz? ",
+    questão5: "Quem é o professor de História da magia?",
         alternativas: [
             {
-                texto: "Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.",
-                afirmacao: "Infelizmente passou a utilizar a IA para fazer todas suas tarefas e agora se sente dependente da IA para tudo."
+                texto: "Professor Cuthbert Binns",
+                afirmacao: "ele é um fantasma e ninguém presta atenção"
             },
             {
-                texto: "O chat pode ser uma tecnologia muito avançada, mas é preciso manter a atenção pois toda máquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial.",
-                afirmacao: "Percebeu que toda IA reproduz orientações baseadas na empresa que programou e muito do que o chat escrevia não refletia o que pensava e por isso sabe que os textos gerados pela IA devem servir como auxílio e não resultado final. "
-            }
+                texto: "Professor Oracio Slugorhn",
+                afirmacao: "ele é o professor de poções que substitui o Snape "
+            },
+        ]
+    },
+    {
+    questão6: "quem é o professor de poções?",
+        alternativas: [
+            {
+                texto: "Professor Severus Snape",
+                afirmacao: "professor de poções e artes das trevas"
+            },
+            {
+                texto: "Professora Minerva Mcgonagall",
+                afirmacao: "professora de transfiguração "
+            },
+        ]
+    },
+    {
+    questão7: "Quem Harry desconfiava que tinha entrado na ala oeste?",
+        alternativas: [
+            {
+                texto: "Professor Quirrel",
+                afirmacao: "Harry o achava fraco"
+            },
+            {
+                texto: "Professora Snape",
+                afirmacao: "viu ele mancando e sua perna tinha sangue "
+            },
+        ]
+    },
+    {
+    questão8: "Por que Harry foi para a floresta proibida?",
+        alternativas: [
+            {
+                texto: " porque ele gosta do perigo, e é o menino que sobreviveu",
+                afirmacao: "nem sabia que existia magia até agora"
+            },
+            {
+                texto: "Estava de detenção por não estar no dormitório na hora certa",
+                afirmacao: "resposta correta, estava na casa de Hagrid"
+            },
+        ]
+    },
+    {
+    questão9: "Qual é o nome da coruja do Harry?",
+        alternativas: [
+            {
+                texto: "Edwiges",
+                afirmacao: "resposta correta, foi dada pelo Hagrid"
+            },
+            {
+                texto: "Adônis",
+                afirmacao: "resposta incorreta, nunca leu os livros? "
+            },
+        ]
+    },
+    {
+    questão10: "Com quem o Harry conversou no zoológico?",
+        alternativas: [
+            {
+                texto: "Cobra",
+                afirmacao: "resposta correta, é uma das primeiras cenas que aparece"
+            },
+            {
+                texto: "Dursley",
+                afirmacao: "resposta incorreta, além de nunca ter lido os livros, nunca viu os filmes "
+            },
         ]
     },
 ];
@@ -97,17 +177,78 @@ function mostraAlternativas(){
     }
 }
 
-function respostaSelecionada(opcaoSelecionada) {
-    const afirmacoes = opcaoSelecionada.afirmacao;
-    historiaFinal += afirmacoes + " ";
-    atual++;
-    mostraPergunta();
-}
-
 function mostraResultado() {
-    caixaPerguntas.textContent = "Em 2049...";
-    textoResultado.textContent = historiaFinal;
-    caixaAlternativas.textContent = "";
-}
+   function checar() {
+  
 
-mostraPergunta();
+  var questao1 = document.quiz.questao1.value;
+  var questao2 = document.quiz.questao2.value;
+  var questao3 = document.quiz.questao3.value;
+  var questao4 = document.quiz.questao4.value;
+  var questao5 = document.quiz.questao5.value;
+  var questao6 = document.quiz.questao6.value;
+  var questao7 = document.quiz.questao7.value;
+  var questao8 = document.quiz.questao8.value;
+  var questao9 = document.quiz.questao9.value;
+  var questao10 = document.quiz.questao10.value;
+
+  var correto = 0;
+
+
+  if (questao1 == "Hagrid e Dumbludore") {
+    correto++;
+  }
+  if (questao2 == "Sirius Black") {
+    correto++;
+  }
+  if (questao3 == "Molly Weasley") {
+    correto++;
+  }
+  if (questao4 == "Rony e Hermione") {
+    correto++;
+  }
+  if (questao5 == "Professor Cuthbert Binns") {
+    correto++;
+  }
+  if (questao6 == "Severus Snape") {
+    correto++;
+  }
+  if (questao7 == "Professor Snape") {
+    correto++;
+  }
+  if (questao8 == "Estava de detenção por não estar no dormitório na hora certa") {
+    correto++;
+  }
+  if (questao9 == "Edwiges") {
+    correto++;
+  }
+  if (questao10 == "cobra") {
+    correto++;
+  }
+
+
+  var imagens = ["img/ganhar.gif", "img/maisoumenos.gif", "img/perdeu.gif"];
+  var mensagens = ["Mandou bem!", "É...melhor tentar de novo!", "Tente novamente!"];
+  var pontos;
+
+  if (correto == 0) {
+    pontos = 2;
+  }
+
+  if (correto > 0 && correto < 10) {
+    pontos = 1;
+  }
+
+  if (correto == 10) {
+    pontos = 0;
+  }
+
+  document.getElementById("enviar").style.visibility = "visible";
+
+  document.getElementById("mensagem").innerHTML = mensagens[pontos];
+
+  document.getElementById("num_correto").innerHTML = "Você tem " + correto + " correto.";
+
+  document.getElementById("imagem").src = imagens[pontos];
+}
+}
